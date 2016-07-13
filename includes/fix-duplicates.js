@@ -8,7 +8,7 @@ jQuery(document).ready(function($){
 			$('.fix-duplicates-more-less').html('&darr;');
 			// update the hidden input so the correct value is used on submit
 			$('#mode').val('list');
-			// update the paging links 
+			// update the paging links
 			$('.pagination-links a').each(function(){
 				var thisURL = $(this).attr('href').replace('mode=expanded','mode=list');
 				$(this).attr('href', thisURL);
@@ -21,11 +21,11 @@ jQuery(document).ready(function($){
 		else if ( modeToSwitchTo == 'expanded' ) {
 			// show the list entries and update the arrow
 			$('tr[class^="duplicate-group-"]').show();
-			$('.fix-duplicates-more-less').html('&uarr;');				
+			$('.fix-duplicates-more-less').html('&uarr;');
 			// update the hidden input so the correct value is used on submit
 			$('#mode').val('expanded');
-			// update the paging links 
-			$('.pagination-links a').each(function(){	
+			// update the paging links
+			$('.pagination-links a').each(function(){
 				var thisURL = $(this).attr('href').replace('mode=list','mode=expanded');
 				$(this).attr('href', thisURL);
 			});
@@ -37,20 +37,20 @@ jQuery(document).ready(function($){
 	// add alternate background to each group of duplicates
 	$('tbody:odd tr').css('background','#e6e6e6');
 	$('tbody:even tr').css('background','#f4f4f4');
-	
+
 	// hide show individual posts depending on setting
-	switchView($('#mode').val()); 
-	
+	switchView($('#mode').val());
+
 	// call switch view when people click on the icons.
 	$('#fd-view-switch-list').on('click',function(){
-		switchView('list'); 
+		switchView('list');
 		return false;
 	});
 	$('#fd-view-switch-expanded').on('click',function(){
-		switchView('expanded'); 
+		switchView('expanded');
 		return false;
 	});
-	
+
 	// deal with individual show / hides (as opposed to the same for all entries above)
 	$('.fix-duplicates-post-number').click(function(){
 		var thisDuplicateGroup = $(this).parents('tr').attr('id').replace('duplicate-control-','');
@@ -62,17 +62,17 @@ jQuery(document).ready(function($){
 			}
 			else {
 				$(this).hide();
-				thisHiddenFlag = 0;						
+				thisHiddenFlag = 0;
 			}
 		});
 		if (thisHiddenFlag) {
 			$('.fix-duplicates-more-less',this).html('&uarr;');
 		}
 		else {
-			$('.fix-duplicates-more-less',this).html('&darr;');					
+			$('.fix-duplicates-more-less',this).html('&darr;');
 		}
 	});
-	
+
 	// deal with Ajax request for Apply button on individual duplicate entries
 	$('[id^="duplicate_entry_apply_"]').click(function(){
 		// get the duplicate number we're working with (ie 1 to 20)
@@ -86,15 +86,15 @@ jQuery(document).ready(function($){
 			duplicateEntryKeepChecked[thisEntry] = 0;
 		}
 		// set up the variable to send whether redirection is selected
-		var duplicateEntryRedirectChecked = {}; 
+		var duplicateEntryRedirectChecked = {};
 		if ($('#duplicate_entry_redirect_'+thisEntry).is(':checked')) {
 			duplicateEntryRedirectChecked[thisEntry] = '1';
 		}
 		else {
-			duplicateEntryRedirectChecked[thisEntry] = '0';					
+			duplicateEntryRedirectChecked[thisEntry] = '0';
 		}
 		// set up the variable to send which posts are part of this duplicate group
-		var duplicateEntryItemsToDelete = {}; 
+		var duplicateEntryItemsToDelete = {};
 		duplicateEntryItemsToDelete[thisEntry] = $('#duplicate_entry_items_to_delete_'+thisEntry).val();
 		// set up the variable containing data to send to server
 		var data = {
@@ -117,12 +117,12 @@ jQuery(document).ready(function($){
 		// return false so the HTML doesn't post to the server as well
 		return false;
 	});
-	
+
 	// deal with Ajax request for Trash links on individual items
 	$('.submitdelete').click(function(){
 		// get the post ID we're working with
 		var thisEntry = $(this).attr('id').replace('trash-','');
-		// if this ID includes a redirect, separate it out 
+		// if this ID includes a redirect, separate it out
 		var thisRedirect = '';
 		if (thisEntry.indexOf('-')) {
 			var thisEntryArray = thisEntry.split('-');
@@ -150,19 +150,19 @@ jQuery(document).ready(function($){
 		// return false so the HTML doesn't post to the server as well
 		return false;
 	});
-	
+
 	// warn people doing the bulk delete
 	$('#duplicate_entry_delete_all').click(function(){
 		$('#duplicate_entry_warning').show();
-		$('#duplicate_entry_redirect_all').attr('disabled','disabled'); 
+		$('#duplicate_entry_redirect_all').attr('disabled','disabled');
 	});
 	$('#duplicate_entry_delete_below').click(function(){
 		$('#duplicate_entry_warning').hide();
 		if ($('#duplicate_entry_redirect_all').hasClass('duplicate_entry_pro')) {
-			$('#duplicate_entry_redirect_all').removeAttr('disabled'); 
+			$('#duplicate_entry_redirect_all').removeAttr('disabled');
 		}
 	});
-	
+
 	// warn people about bulk redirects if draft posts are showing
 	$('#duplicate_entry_redirect_all').change(function(){
 		// if show_drafts is checked then toggle warning
@@ -171,7 +171,7 @@ jQuery(document).ready(function($){
 				$('#duplicate_entry_redirect_warning').show();
 			}
 			else {
-				$('#duplicate_entry_redirect_warning').hide();			
+				$('#duplicate_entry_redirect_warning').hide();
 			}
 		}
 	});
@@ -188,7 +188,7 @@ jQuery(document).ready(function($){
 				// set up handler to remove it on mouseout. Destroy the event handler on first run so they don't build up
 				$('.row-actions').mouseout(function(){
 					$('#duplicate_entry_control_warning').remove();
-					$('.row-actions').off('mouseout'); 
+					$('.row-actions').off('mouseout');
 				});
 			}
 			else {
@@ -196,5 +196,5 @@ jQuery(document).ready(function($){
 			}
 		}
 	});
-	
+
 });
