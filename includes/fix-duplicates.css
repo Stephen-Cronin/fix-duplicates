@@ -204,9 +204,9 @@
 #moveable-sidebar {
 	clear:both;
 	float:right;
-	margin: 120px 15px 0 1%;
-    min-width: 280px;
-    width: 24%;
+	margin: 124px 0 0;
+	min-width: 272px;
+	width: 23%;
 }
 #moveable-sidebar h2 {
 	font-weight:normal; 
