@@ -387,8 +387,11 @@ function fix_duplicates_admin_main() {
 				// Start loop for each duplicate item (individual entries, we group them below by adding a control row for the first duplicate)
 				foreach ( $fix_duplicates_result as $key => $value ) :
 
+					// define array to store redirect information
+					$fix_duplicates_this_redirect_array = array();
+
 					// if this title doesn't match previous row's title, we're on to a new duplicate, so start a new tbody and add summary / control row
-					if ( trim( strtolower( $fix_duplicates_result[ $key-1 ][ 'post_title' ] ) ) != trim( strtolower( $value[ 'post_title' ] ) ) ) :
+					if ( $key == 0 || trim( strtolower( $fix_duplicates_result[ $key-1 ][ 'post_title' ] ) ) != trim( strtolower( $value[ 'post_title' ] ) ) ) :
 				?>
 						<tbody id="fix-duplicates-group-<?php echo $fix_duplicates_group_no; ?>">
 
@@ -399,7 +402,6 @@ function fix_duplicates_admin_main() {
 										// Work out the count by looping through the results. Also store all entries for this title for deletion and for redirection
 										$count = 0;
 										$fix_duplicates_this_duplicate_array = array();
-										$fix_duplicates_this_redirect_array = array();
 										foreach ( $fix_duplicates_result as $key2 => $value2 ) {
 											if ( trim( strtolower( $fix_duplicates_result[ $key2 ][ 'post_title' ] ) ) == trim( strtolower( $value[ 'post_title' ] ) ) ) {
 												$fix_duplicates_this_duplicate_array[] = $fix_duplicates_result[ $key2 ][ 'ID' ];
@@ -460,14 +462,15 @@ function fix_duplicates_admin_main() {
 								// build the string to put out for individual redirect links
 								$fix_duplicates_redirect_individual_links_string = '';
 								// if this is not the newest, add the redirect to the newest post, assuming there is at least one in the array
-								if ( $fix_duplicates_this_redirect_array[0] != absint( $value[ 'ID' ] ) && count( $fix_duplicates_this_redirect_array ) ) {
+								if ( count( $fix_duplicates_this_redirect_array ) && $fix_duplicates_this_redirect_array[0] != absint( $value[ 'ID' ] ) ) {
 									$fix_duplicates_redirect_individual_links_string .= '
 										<span class="trash"><span class="fix-duplicates-disabled" title="Pro version is required for the redirection feature">Redirect to ' . $fix_duplicates_this_redirect_array[0] . '</span></span> | ';
 								}
 								// if this is not the oldest, add the redirect to the oldest post, assuming there are more than one in the array
-								if ( end( array_values( $fix_duplicates_this_redirect_array ) ) != absint( $value[ 'ID' ] ) && count( $fix_duplicates_this_redirect_array ) > 1 ) {
+								// Note extra brackets around array_values to prevent the notice: PHP Strict Standards: Only variables should be passed by reference
+								if ( count( $fix_duplicates_this_redirect_array ) > 1 && end( ( array_values( $fix_duplicates_this_redirect_array ) ) ) != absint( $value[ 'ID' ] ) ) {
 									$fix_duplicates_redirect_individual_links_string .= '
-										<span class="trash"><span class="fix-duplicates-disabled" title="Pro version is required for the redirection feature">Redirect to ' . end( array_values( $fix_duplicates_this_redirect_array ) ) . '</span></span> | ';
+										<span class="trash"><span class="fix-duplicates-disabled" title="Pro version is required for the redirection feature">Redirect to ' . end( ( array_values( $fix_duplicates_this_redirect_array ) ) ) . '</span></span> | ';
 								}
 								// apply filters
 								$fix_duplicates_redirect_individual_links_array = apply_filters( 'fix_duplicates_redirect_individual_links_string', array( 'string' => $fix_duplicates_redirect_individual_links_string, 'this_id' => absint( $value[ 'ID' ] ), 'dup_array' => $fix_duplicates_this_redirect_array ) );
