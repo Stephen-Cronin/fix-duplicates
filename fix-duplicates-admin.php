@@ -506,7 +506,7 @@ function fix_duplicates_admin_main() {
 
 				<?php
 					// if this title doesn't match next row's title, close the tbody
-					if ( trim( strtolower( $fix_duplicates_result[ $key + 1 ][ 'post_title' ] ) ) != trim( strtolower( $value[ 'post_title' ] ) ) ) :	?>
+					if ( $key + 1 >= count( $fix_duplicates_result ) || trim( strtolower( $fix_duplicates_result[ $key + 1 ][ 'post_title' ] ) ) != trim( strtolower( $value[ 'post_title' ] ) ) ) :	?>
 						</tbody>
 				<?php endif;
 				endforeach;
@@ -624,7 +624,7 @@ function fix_duplicates_process_post_actions() {
 	$fix_duplicates_redirection_message = '';
 
 	// if we have $_POST['post'] set and either action or action2, then this is the bulk trash action
-	if ( is_array( $_POST[ 'post' ] ) && ( esc_html( $_POST[ 'action' ] == 'trash' ) || esc_html( $_POST[ 'action2' ] == 'trash' ) ) ) {
+	if ( ( isset( $_POST[ 'post' ] ) && is_array( $_POST[ 'post' ] ) ) && ( esc_html( $_POST[ 'action' ] == 'trash' ) || esc_html( $_POST[ 'action2' ] == 'trash' ) ) ) {
 
 		// set the $fix_duplicates_items_to_process array to sanitized post array
 		$fix_duplicates_items_to_process = array_map( 'absint', $_POST[ 'post' ] );
@@ -638,7 +638,7 @@ function fix_duplicates_process_post_actions() {
 	}
 
 	// else if $_POST['duplicate_entry_all_apply'] is set, then this the bulk "Trash, keep and redirect" action
-	elseif ( esc_html( $_POST[ 'duplicate_entry_all_apply' ] ) ) {
+	elseif ( isset( $_POST[ 'duplicate_entry_all_apply' ] ) ) {
 
 		// if this is set to one, then we are deleting all on this page
 		if ( absint( $_POST[ 'duplicate_entry_delete_all' ] ) ) {
