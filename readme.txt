@@ -2,9 +2,9 @@
 Contributors: StephenCronin
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=sjc@scratch99.com&currency_code=&amount=&return=&item_name=WP-FixDuplicates
 Tags: duplicates, find duplicates, fix duplicates, duplicate posts, user submitted posts, classifieds
-Requires at least: 2.8.0
-Tested up to: 4.2.2
-Stable tag: 1.0.3
+Requires at least: 3.5
+Tested up to: 4.6.1
+Stable tag: 1.0.4
 Find and delete duplicates posts. There are extensions that allow you find posts with similar content, redirect duplicates to the post you are keeping, etc.
 
 == Description ==
@@ -21,7 +21,7 @@ We currently offer the following premium extensions:
 * [Redirection](http://scratch99.com/products/fix-duplicates/redirection/): Gives you the ability to 301 redirect any duplicates being deleted, to the one being kept. This helps preserve your link equity, so that PageRank is passed to a single post rather than just being lost. Or to put it simply: Helps with SEO!
 
 = Compatibility =
-* This plugin requires WordPress 2.8 or above.
+* This plugin requires WordPress 3.5 or above.
 * I am not currently aware of any compatibility issues with any other WordPress plugins.
 
 = Support =
@@ -46,6 +46,10 @@ Alternatively, you can install the plugin automatically through the WordPress Ad
 5. The redirection management screen, which is part of the premium Redirection extension.
 
 == Changelog ==
+
+= 1.0.4 (24 October 2016) =
+* Major Fix: Prevent a hole heap of notifications being displayed / saved when WP_DEBUG is set to true.
+* Minor Fix: Tweaks to styling of the admin pages, including fixing the position of the sidebar.
 
 = 1.0.3 (12 July 2015) =
 * Minor Fix: Prevent PHP warnings from occuring (by checking for the existence of GET variables before use).
