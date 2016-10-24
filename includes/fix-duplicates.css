@@ -149,6 +149,7 @@
 .fix-duplicates-top-buttons {
 	border-top: 1px solid #DFDFDF;
 	padding:.6em .6em 0;
+	height: auto;
 }
 .fix-duplicates-top-buttons fieldset {
 	display:inline-block;
