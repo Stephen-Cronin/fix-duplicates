@@ -28,19 +28,16 @@
 }
 .stuffbox {
 	width:75%;
-	min-width: 600px;
 	margin: 0 0 1.2em;
 	float:left;
 }
 .fix-duplicates-asides {
 	width:23%;
-	min-width:272px;
 	margin: 0 0 0 1%;
 	float:right;
 }
 .fix-duplicates-aside {
 	width:90%;
-	min-width:220px;
 	max-width:440px;
 	border: 1px #E6E6E6 solid;
 	padding: 18px 5%;
@@ -204,8 +201,7 @@
 #moveable-sidebar {
 	clear:both;
 	float:right;
-	margin: 124px 0 0;
-	min-width: 272px;
+	margin: 79px 0 0;
 	width: 23%;
 }
 #moveable-sidebar h2 {
