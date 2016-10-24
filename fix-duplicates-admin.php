@@ -387,9 +387,6 @@ function fix_duplicates_admin_main() {
 				// Start loop for each duplicate item (individual entries, we group them below by adding a control row for the first duplicate)
 				foreach ( $fix_duplicates_result as $key => $value ) :
 
-					// define array to store redirect information
-					$fix_duplicates_this_redirect_array = array();
-
 					// if this title doesn't match previous row's title, we're on to a new duplicate, so start a new tbody and add summary / control row
 					if ( $key == 0 || trim( strtolower( $fix_duplicates_result[ $key-1 ][ 'post_title' ] ) ) != trim( strtolower( $value[ 'post_title' ] ) ) ) :
 				?>
@@ -402,6 +399,7 @@ function fix_duplicates_admin_main() {
 										// Work out the count by looping through the results. Also store all entries for this title for deletion and for redirection
 										$count = 0;
 										$fix_duplicates_this_duplicate_array = array();
+										$fix_duplicates_this_redirect_array = array();
 										foreach ( $fix_duplicates_result as $key2 => $value2 ) {
 											if ( trim( strtolower( $fix_duplicates_result[ $key2 ][ 'post_title' ] ) ) == trim( strtolower( $value[ 'post_title' ] ) ) ) {
 												$fix_duplicates_this_duplicate_array[] = $fix_duplicates_result[ $key2 ][ 'ID' ];
