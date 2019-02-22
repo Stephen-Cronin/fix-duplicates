@@ -833,19 +833,6 @@ function fix_duplicates_admin_asides() {
 						</script>
 				</div>
 
-				<div class="fix-duplicates-aside">
-					<h2>Hire me!</h2>
-					<p>Scratch99 Design provides rock-solid professional services, including:
-					<ul>
-						<li>WordPress development / consultation</li>
-						<li>Website optimisation</li>
-						<li>Content strategy advice</li>
-						<li>Other web related services</li>
-					</ul>
-					<a target="_blank" href="http://scratch99.com/services/">Contact me</a> for more information.
-					</p>
-				</div>
-
 			</div> <!-- class="stuffbox" -->
 	<?php
 }
