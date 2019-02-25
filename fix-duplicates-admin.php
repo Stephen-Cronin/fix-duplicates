@@ -801,6 +801,12 @@ function fix_duplicates_admin_asides() {
 					</ul>
 				</div>
 
+				<div class="fix-duplicates-aside">
+					<h2>Rate The Plugin</h2>
+					<p>Help other people find the plugin by rating it 5 stars on wordpress.org.</p>
+					<p><a class="fix-duplicates-buy-now" target="_blank" href="https://wordpress.org/support/plugin/fix-duplicates/reviews/#new-post">Rate plugin now!</a></p>
+				</div>
+
 			</div> <!-- class="stuffbox" -->
 	<?php
 }
