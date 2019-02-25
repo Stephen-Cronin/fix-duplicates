@@ -784,12 +784,9 @@ function fix_duplicates_admin_asides() {
 
 			<?php if ( ! function_exists( 'fix_duplicates_redirection_process_save' ) ) : ?>
 				<div class="fix-duplicates-aside">
-					<h2>Buy Pro Extensions</h2>
-					<p>Buy the following extensions (more coming soon):</p>
-					<ul>
-						<li><a target="_blank" href="http://scratch99.com/products/fix-duplicates/redirection/">Redirect duplicates for better SEO</li>
-					</ul>
-					<p><a class="fix-duplicates-buy-now" target="_blank" href="http://scratch99.com/products/fix-duplicates/#extensions">Buy extensions now!</a>.</p>
+					<h2>Buy the Redirection Extension</h2>
+					<p>Improve your SEO using the <a target="_blank" href="http://scratch99.com/products/fix-duplicates/redirection/">Redirection extension</a> to 301 redirect any removed duplicates.</p>
+					<p><a class="fix-duplicates-buy-now" target="_blank" href="http://scratch99.com/products/fix-duplicates/#extensions">Buy Redirection now</a></p>
 				</div>
 			<?php endif; ?>
 
