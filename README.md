@@ -11,6 +11,8 @@
 
 **Stable tag:** 1.0.4
 
+**Requires PHP:** 5.2
+
 Find and delete duplicates posts. There are extensions that allow you find posts with similar content, redirect duplicates to the post you are keeping, etc.
 
 ## Description ##

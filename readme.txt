@@ -5,6 +5,7 @@ Tags: duplicates, find duplicates, fix duplicates, duplicate posts, user submitt
 Requires at least: 3.5
 Tested up to: 4.6.1
 Stable tag: 1.0.4
+Requires PHP: 5.2
 Find and delete duplicates posts. There are extensions that allow you find posts with similar content, redirect duplicates to the post you are keeping, etc.
 
 == Description ==
