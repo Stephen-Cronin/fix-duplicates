@@ -49,7 +49,7 @@ Alternatively, you can install the plugin automatically through the WordPress Ad
 == Changelog ==
 
 = 1.0.4 (24 October 2016) =
-* Major Fix: Prevent a hole heap of notifications being displayed / saved when WP_DEBUG is set to true.
+* Major Fix: Prevent a whole heap of notifications being displayed / saved when WP_DEBUG is set to true.
 * Minor Fix: Tweaks to styling of the admin pages, including fixing the position of the sidebar.
 
 = 1.0.3 (12 July 2015) =
