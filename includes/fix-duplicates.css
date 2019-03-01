@@ -26,21 +26,9 @@
 	margin-bottom: 0;
 	margin-top:8px;
 }
-.stuffbox {
-	width:75%;
-	margin: 0 0 1.2em;
-	float:left;
-}
-.fix-duplicates-asides {
-	width:23%;
-	margin: 0 0 0 1%;
-	float:right;
-}
 .fix-duplicates-aside {
-	width:90%;
-	max-width:440px;
 	border: 1px #E6E6E6 solid;
-	padding: 18px 5%;
+	padding: 26px 28px 18px;
 	margin:0 0 1.2em;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
@@ -49,15 +37,20 @@
 #poststuff .fix-duplicates-aside h2 {
 	margin:0 0 .6em;
 	padding:0;
+	font-size: 1.3em;
+}
+#poststuff .fix-duplicates-aside p {
+	font-size: 1.1em;
 }
 #poststuff .fix-duplicates-aside li {
 	margin:0 0 0 1.8em;
 	padding:0;
 	list-style:disc;
+	font-size: 1.1em;
 }
 .fix-duplicates-buy-now {
-	font-size: 1.4em !important;
-    padding: 8px 14px;
+	font-size: 1.2em !important;
+    padding: 10px 16px;
 	margin: 6px 0 0;
 	display:inline-block;
 	border-radius: 8px;
@@ -211,4 +204,80 @@
 #moveable-sidebar li {
 	list-style:disc inside;
 	margin-left:9px;
+}
+
+
+
+@media screen and (min-width: 900px) {
+	#poststuff {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto;
+	}
+	.fix-duplicates-asides {
+		grid-row: 1;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 1.6em;
+	}
+	.fix-duplicates-aside {
+		grid-column: auto;
+	}
+	.stuffbox {
+		grid-row: 2;
+	}
+	#poststuff .fix-duplicates-aside h2 {
+		font-size: 1.2em;
+	}
+	#poststuff .fix-duplicates-aside p {
+		font-size: 1em;
+	}
+	#poststuff .fix-duplicates-aside li {
+		font-size: 1em;
+	}
+	.fix-duplicates-buy-now {
+		font-size: 1em !important;
+	}
+	
+}
+
+@media screen and (min-width: 1180px) {
+	#poststuff .fix-duplicates-aside h2 {
+		font-size: 1.3em;
+	}
+	#poststuff .fix-duplicates-aside p {
+		font-size: 1.1em;
+	}
+	#poststuff .fix-duplicates-aside li {
+		font-size: 1.1em;
+	}
+	.fix-duplicates-buy-now {
+		font-size: 1.1em !important;
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	#poststuff {
+		grid-template-columns: 4fr minmax(290px, 340px);
+		grid-template-rows: auto;
+		grid-column-gap: 1.6em;
+	}
+	.fix-duplicates-asides {
+		display: block;
+	}
+	.stuffbox {
+		grid-row: 1;
+	}
+	#poststuff .fix-duplicates-aside h2 {
+		font-size: 1.4em;
+	}
+	#poststuff .fix-duplicates-aside p {
+		font-size: 1.2em;
+	}
+	#poststuff .fix-duplicates-aside li {
+		font-size: 1.2em;
+	}
+	.fix-duplicates-buy-now {
+		font-size: 1.2em !important;
+	}
 }
