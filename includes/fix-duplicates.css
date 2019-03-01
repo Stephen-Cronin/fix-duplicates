@@ -78,6 +78,15 @@
 	background: -ms-linear-gradient(top, #090 0%, #0C0 100%); /* IE10+ */
 	background: linear-gradient(top, #090 0%, #0C0 100%); /* W3C */
 }
+.fix-duplicates-buy-now:active {
+	color:#fff;
+}
+.fix-duplicates-buy-now:focus {
+	color:#fff;
+	-webkit-box-shadow: #666 2px 2px 3px;
+	-moz-box-shadow: #666 2px 2px 3px;
+	box-shadow: #666 2px 2px 3px;
+}
 .facebook-widget {
 	float:left;
 	margin:0 12px;
